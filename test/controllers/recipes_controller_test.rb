@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class RecipesControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+  fixtures :recipes
   setup do
-    @recipe = recipes(:one)
+    @recipe = recipes(:curry)
+    sign_in User.first
   end
 
   test "should get index" do
@@ -18,7 +21,16 @@ class RecipesControllerTest < ActionController::TestCase
 
   test "should create recipe" do
     assert_difference('Recipe.count') do
-      post :create, recipe: { cooking_time: @recipe.cooking_time, cuisine_id: @recipe.cuisine_id, difficulty_level: @recipe.difficulty_level, food_preference_id: @recipe.food_preference_id, food_type_id: @recipe.food_type_id, ingredients: @recipe.ingredients, procedure: @recipe.procedure, title: @recipe.title }
+      post :create, recipe: { 
+        cooking_time: @recipe.cooking_time,
+        cuisine_id: @recipe.cuisine_id,
+        difficulty_level: @recipe.difficulty_level,
+        food_preference_id: @recipe.food_preference_id,
+        food_type_id: @recipe.food_type_id,
+        ingredients: @recipe.ingredients,
+        procedure: @recipe.procedure,
+        title: @recipe.title
+      }
     end
 
     assert_redirected_to recipe_path(assigns(:recipe))
@@ -35,7 +47,17 @@ class RecipesControllerTest < ActionController::TestCase
   end
 
   test "should update recipe" do
-    patch :update, id: @recipe, recipe: { cooking_time: @recipe.cooking_time, cuisine_id: @recipe.cuisine_id, difficulty_level: @recipe.difficulty_level, food_preference_id: @recipe.food_preference_id, food_type_id: @recipe.food_type_id, ingredients: @recipe.ingredients, procedure: @recipe.procedure, title: @recipe.title }
+    patch :update, id: @recipe, recipe: {
+      cooking_time: @recipe.cooking_time,
+      cuisine_id: @recipe.cuisine_id,
+      difficulty_level: @recipe.difficulty_level,
+      food_preference_id: @recipe.food_preference_id,
+      food_type_id: @recipe.food_type_id,
+      ingredients: @recipe.ingredients,
+      procedure: @recipe.procedure,
+      title: @recipe.title
+    }
+    
     assert_redirected_to recipe_path(assigns(:recipe))
   end
 
