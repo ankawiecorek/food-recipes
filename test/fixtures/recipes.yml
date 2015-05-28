@@ -1,11 +1,21 @@
-dessert:
-  title: Easy chocolate cake
-  food_preference_id: 1
-  food_type: 1
-  cuisine_id: 1
-  servings: 1
-  cooking_time: 1
-  level_of_difficulty: Easy
-  ingredients: flour sugar cocoa powder baking powder bicarbonate of soda free-range eggs milk vegetable oil vanilla extract boiling water
-  procedure: Mixture until smooth and well combined, bake in the oven for 25-35 minutes.
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+one:
+  title: MyString
+  cooking_time: MyString
+  difficulty_level: MyString
+  food_type_id: 1
+  food_preference_id: 1
+  cuisine_id: 1
+  ingredients: MyText
+  procedure: MyText
+
+two:
+  title: MyString
+  cooking_time: MyString
+  difficulty_level: MyString
+  food_type_id: 1
+  food_preference_id: 1
+  cuisine_id: 1
+  ingredients: MyText
+  procedure: MyText
